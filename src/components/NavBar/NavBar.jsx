@@ -27,7 +27,7 @@ const NavBar = () => {
             </select>
 
             <input type="text" placeholder='Search Amazon'/>
-            <FaMagnifyingGlass style={{color: "black", backgroundColor: "tomato", padding: "0.5rem"}}/>
+            <FaMagnifyingGlass style={{color: "black", backgroundColor: "rgb(254,189,105)", padding: "0.5rem"}}/>
         </div>
         <div className='signIn'>
             <span className='signIn-text'>Hello, Sign in</span>

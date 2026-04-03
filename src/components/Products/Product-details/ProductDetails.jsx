@@ -1,19 +1,17 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import "./ProductDetails.css"
+import "./ProductDetails.css";
 
-const ProductDetails = () => {
-    const params = useParams()
-
+const ProductDetails = (props) => {
+  const { product } = props;
   return (
-    <div className='details'>
-      <h1>Product Details</h1>
-      
-      <span>{params.id}</span>
-      
+    <div className="details">
+      <p>{product.descrip}</p>
+      <img src={product.image} alt={product.name} />
+      <Link to={`/products/${product.id}`}>View Details</Link>
     </div>
-  )
-}
+  );
+};
 
-export default ProductDetails
+export default ProductDetails;
