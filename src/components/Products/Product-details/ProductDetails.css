@@ -3,7 +3,19 @@
     flex-direction: column;
     align-items: center;
     
-    margin-top: 2rem;
+    margin-top: 1.6rem;
+    padding: 1rem;
 
     background-color: white;
+}
+.details p {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+a {
+    text-decoration: none;
+    text-align: start;
+    padding: 0.1rem;
 }

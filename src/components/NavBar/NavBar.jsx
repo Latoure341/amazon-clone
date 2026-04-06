@@ -1,11 +1,16 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 import "./NavBar.css"
 import { FaLocationDot, FaMagnifyingGlass, FaShop } from 'react-icons/fa6'
 import { FaShoppingCart } from 'react-icons/fa'
 
 const NavBar = () => {
+    const navigate = useNavigate()
+
+    const signInpage = () => {
+        navigate("/login")
+    }
   return (
     <nav>
         <div className='logo'>
@@ -29,7 +34,7 @@ const NavBar = () => {
             <input type="text" placeholder='Search Amazon'/>
             <FaMagnifyingGlass style={{color: "black", backgroundColor: "rgb(254,189,105)", padding: "0.5rem"}}/>
         </div>
-        <div className='signIn'>
+        <div className='signIn' onClick={signInpage}>
             <span className='signIn-text'>Hello, Sign in</span>
             <span className='signIn-account'>Account & Lists</span>
         </div>

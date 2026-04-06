@@ -3,6 +3,7 @@ import { Routes, Route, BrowserRouter, Link, NavLink } from "react-router-dom";
 
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./components/Home/Home";
+import LogIn from "./components/LogIn/LogIn";
 import Products from "./components/Products/Products";
 import ProductDetails from "./components/Products/Product-details/ProductDetails";
 
@@ -13,6 +14,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LogIn />} />
         <Route path="/products" element={<Products />} />
         <Route path="/productDetails/:id" element={<ProductDetails />} />
       </Routes>
