@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import "./Products.css"
 import ProductDetails from './Product-details/ProductDetails'
 
 const productList =[
@@ -12,7 +11,7 @@ const productList =[
 
 const Products = () => {
   return (
-    <div className='products'>
+    <div className="flex flex-wrap justify-center gap-4 mt-40 text-center">
       {
         productList.map(product=> {
           return <ProductDetails key={product.id} product={product} />
