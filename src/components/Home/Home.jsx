@@ -89,20 +89,134 @@ const Home = () => {
       </section>
 
       {/* Second Section */}
-      <section className='bg-orange-500 flex flex-col p-4 gap-2 mt-10'>
+      <section className='bg-orange-500 flex flex-col p-4 gap-2 mt-10 mx-4'>
         <span className='flex gap-5'>
           <h3 className='font-bold text-white'>Welcome Deals</h3>
           <a href='#' className='text-white'>See more</a>
         </span>
         <p className='text-white'>Free delivery on items shipped by Amazon</p>
-        <div className='flex flex-wrap'>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+        <div className='flex flex-wrap gap-2 items-center'>
+
+          <span className='bg-gray-200 p-3 rounded flex flex-col items-center'>
+            <img src='https://m.media-amazon.com/images/I/416A281tv+L._AC_SR480,440_.jpg'
+            height={200} width={200}/>
+            <div className=''>
+              <p className='text-sm'>Oros Squash Orange 2L, Tartrazine-..</p>
+              <span className='flex items-center gap-2'>
+                <button className='p-1 text-xs text-white bg-pink-800 hover:bg-pink-900 rounded' type='button'>35% off </button>
+                <p className='text-xs text-pink-600 font-bold'>Limited time deal</p>
+              </span>
+              <p>R31.00</p>
+            </div>
+          </span>
+
+          <span className='bg-gray-200 p-3 rounded flex flex-col items-center'>
+            <img src='https://m.media-amazon.com/images/I/41K+4N+xlDL._AC_SR480,440_.jpg'
+            height={200} width={200}/>
+            <div className=''>
+              <p className='text-sm'>Astrum Ultra-High Capacity 2000..</p>
+              <span className='flex items-center gap-2'>
+                <button className='p-1 text-xs text-white bg-pink-800 hover:bg-pink-900 rounded' type='button'>43% off </button>
+                <p className='text-xs text-pink-600 font-bold'>Limited time deal</p>
+              </span>
+              <p>R199.00</p>
+            </div>
+          </span>
+
+          <span className='bg-gray-200 p-3 rounded flex flex-col items-center'>
+            <img src='https://m.media-amazon.com/images/I/41bkFteukKL._AC_SR480,440_.jpg'
+            height={200} width={200}/>
+            <div className=''>
+              <p className='text-sm'>Nescafe Expresso Blonde Instan..</p>
+              <span className='flex items-center gap-2'>
+                <button className='p-1 text-xs text-white bg-pink-800 hover:bg-pink-900 rounded' type='button'>22% off </button>
+                <p className='text-xs text-pink-600 font-bold'>Limited time deal</p>
+              </span>
+              <p>R126.00</p>
+            </div>
+          </span>
+
+
+          <span className='bg-gray-200 p-3 rounded flex flex-col items-center'>
+            <img src='https://m.media-amazon.com/images/I/41FLDePLa4L._AC_SR480,440_.jpg'
+            height={200} width={200}/>
+            <div className=''>
+              <p className='text-sm'>Redbull Energy Drink 250ml (12 pack)</p>
+              <span className='flex items-center gap-2'>
+                <button className='p-1 text-xs text-white bg-pink-800 hover:bg-pink-900 rounded' type='button'>31% off </button>
+                <p className='text-xs text-pink-600 font-bold'>Limited time deal</p>
+              </span>
+              <p>R159.00</p>
+            </div>
+          </span>
+
+          <span className='bg-gray-200 p-3 rounded flex flex-col items-center'>
+            <img src='https://m.media-amazon.com/images/I/41b1nJAlbdL._AC_SR480,440_.jpg'
+            height={200} width={200}/>
+            <div className=''>
+              <p className='text-sm'>Tastic Preboiled Rice 5kg</p>
+              <span className='flex items-center gap-2'>
+                <button className='p-1 text-xs text-white bg-pink-800 hover:bg-pink-900 rounded' type='button'>51% off </button>
+                <p className='text-xs text-pink-600 font-bold'>Limited time deal</p>
+              </span>
+              <p>R78.00</p>
+            </div>
+          </span>
+
         </div>
       </section>
+
+      {/* Third Section */}
+      <section className='bg-gray-200 mt-10 mx-4 p-2'>
+        <h3 className='text-black text-lg font-bold'>Welcome to Amazon</h3>
+        <div className='flex gap-3 p-2'>
+          <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/BFCM2025/aboutamazon/Free_Delivery_0.5x._CB778020995_.jpg"
+          />
+          <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/BFCM2025/aboutamazon/Pickup_location0.5x._CB778020995_.jpg"
+          />
+          <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/BFCM2025/aboutamazon/Order_Tracking0.5x._CB778020995_.jpg"
+          />
+          <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/BFCM2025/aboutamazon/Easy_Returns0.5x._CB778020995_.jpg"
+          />
+          <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/BFCM2025/aboutamazon/Guarantee0.5x._CB778020995_.jpg"
+          />
+          <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/BFCM2025/aboutamazon/Customer_Supp0.5x._CB778020995_.jpg"
+          />
+        </div>
+      </section>
+
+      {/* Fourth Section */}
+      <section className='bg-gray-200 mt-10 mx-4 p-2'>
+        <h3 className='text-black text-xl font-bold p-2'>Shop our categories</h3>
+        <div className='flex gap-3 p-2'>
+          <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/Homepage2024/SpringRefresh/BubbleShoveler/Deals_Spring_shovelor_Lowres._CB564592108_.jpg"
+          width={200}/>
+          <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/Homepage2024/SpringRefresh/BubbleShoveler/Books_Spring_shovelor_Lowres._CB564592108_.jpg"
+          />
+          <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/Homepage2024/SpringRefresh/BubbleShoveler/Electronics_Spring_shovelor_lowres._CB564592108_.jpg"
+          />
+          <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/HPC_Spring_shovelor_Hires0.5x._CB799931608_.jpg"
+          />
+          <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/Homepage2024/SpringRefresh/BubbleShoveler/Jewellery_Spring_shovelor_Lowres._CB564592108_.jpg"
+          />
+          <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/Homepage2024/SpringRefresh/BubbleShoveler/Toys_and_Games_Spring_shovelor_Lowres._CB564592108_.jpg"
+          />
+        </div>
+      </section>
+
+      {/* Fifth Section */}
+      <section className='bg-gray-200 mt-20 mx-4 p-2 flex flex-col justify-center items-center border-top-1 border-gray-500'>
+        <p className='font-bold text-black'>See personalised recommendations</p>
+        <button className='bg-yellow-500 py-1 px-5 rounded mb-0 mt-5' type='button'>Sign In</button>
+        <span className='flex justify-center items-start gap-1 mt-1'>
+          <p className='text-xs'>New Customer? </p>
+          <a className='text-blue-600 text-xs' href='#'>Start here</a>
+        </span>
+      </section>
+
+      <footer className='bg-blue-900 mt-20 p-5 '>
+        <p>Footer here</p>
+      </footer>
     </>
   )
 }
