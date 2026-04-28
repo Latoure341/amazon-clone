@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import ProductDetails from './Product-details/ProductDetails'
 
 const productList =[
   {id: 1, name: "product 1", price: "R10", image: "https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2026/Homepage/HP_Desktop_Single_Image_Card_Books-1._SY304_CB783593942_.jpg", descrip: "Book Now"},

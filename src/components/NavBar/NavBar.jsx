@@ -11,7 +11,7 @@ const NavBar = () => {
         navigate("/login")
     }
   return (
-    <nav className="flex w-full h-14 gap-9 justify-center items-center m-0 p-1 bg-[#131921] text-white overflow-x-hidden">
+    <nav className="flex w-full h-14 gap-9 justify-center items-center m-0 p-1 bg-[#131921] text-white overflow-y-hidden">
         <div className='logo cursor-pointer'>
             <img src="https://i.pinimg.com/originals/d4/9f/a3/d49fa3523c84bef766b4b2bde8296d23.jpg" alt="logo"
             height={20} width={30}/>
@@ -30,8 +30,11 @@ const NavBar = () => {
                 <option value="Amazon Pay">Amazon Pay</option> 
             </select>
 
-            <input type="text" placeholder='Search Amazon' className="outline-none border-none w-[35rem] p-2 cursor-pointer"/>
-            <FaMagnifyingGlass style={{color: "black", backgroundColor: "rgb(254,189,105)", padding: "0.5rem"}}/>
+            <input type="text" placeholder='Search Amazon' className="outline-none border-none w-[35rem] p-0 cursor-pointer"/>
+            
+            <span className='bg-orange-300 p-3 m-0'>
+                <FaMagnifyingGlass className='text-xl text-current m-0 p-0'/>    
+            </span>
         </div>
         <div className='signIn flex flex-col gap-1 cursor-pointer p-1' onClick={signInpage}>
             <span className='text-xs cursor-pointer'>Hello, Sign in</span>
