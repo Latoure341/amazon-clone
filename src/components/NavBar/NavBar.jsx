@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 
 import { FaLocationDot, FaMagnifyingGlass, FaShop } from 'react-icons/fa6'
 import { FaShoppingCart } from 'react-icons/fa'
+import { IoIosMenu } from "react-icons/io";
 
 const NavBar = () => {
     const navigate = useNavigate()
@@ -11,6 +12,7 @@ const NavBar = () => {
         navigate("/login")
     }
   return (
+    <>
     <nav className="flex w-full h-14 gap-9 justify-center items-center m-0 p-1 bg-[#131921] text-white overflow-y-hidden">
         <div className='logo cursor-pointer'>
             <img src="https://i.pinimg.com/originals/d4/9f/a3/d49fa3523c84bef766b4b2bde8296d23.jpg" alt="logo"
@@ -49,6 +51,25 @@ const NavBar = () => {
             <span>Cart</span>
         </div>
       </nav>
+      <section className='flex items-center text-white'>
+        <div className='bg-[#232f3e] flex gap-3 w-4/6 p-1'>
+          <span className='text-xs flex items-center gap-1 text-white font-bold p-2 cursor-pointer hover:border-1'>
+          <IoIosMenu className='text-white'/>
+          All
+        </span>
+        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Customer Service</span>
+        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Today's Deals</span>
+        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Keep Shopping For</span>
+        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Everyday Essentials</span>
+        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Best Sellers</span>
+        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Shop Mzansi</span>
+        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Gift Cards</span>
+        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Sell</span>
+        </div>
+        <span className='p-1 text-center text-2xl font-extrabold cursor-pointer hover:border-1 w-2/6 bg-orange-500'>Everyday Essentials</span>
+      </section>
+
+      </>
   )
 }
 
