@@ -11,10 +11,14 @@ const NavBar = () => {
     const signInpage = () => {
         navigate("/login")
     }
+    const homePage = () => {
+        navigate("/")
+    }
+
   return (
     <>
     <nav className="flex w-full h-14 gap-9 justify-center items-center m-0 p-1 bg-[#131921] text-white overflow-y-hidden">
-        <div className='logo cursor-pointer'>
+        <div className='logo cursor-pointer hover:border hover:border-white hover:rounded-sm p-2' onClick={homePage}>
             <img src="https://i.pinimg.com/originals/d4/9f/a3/d49fa3523c84bef766b4b2bde8296d23.jpg" alt="logo"
             height={20} width={30}/>
         </div>

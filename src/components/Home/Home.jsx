@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Footer from "../Footer/Footer.jsx";
 
 const Home = () => {
@@ -65,7 +66,7 @@ const Home = () => {
           <h3 className='font-bold'>Deals on Electronics</h3>
           <img className='m-2' src='https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2026/Payday/electrojnics_CC_DT0.5x._SY304_CB787423716_.jpg'
             height={300} width={250} />
-          <a href="#" className='text-blue-500 p-1'>Shop Now</a>
+          <Link to="/productlist" className='text-blue-500 p-1'>Shop Now</Link>
         </div>
         <div className='bg-gray-200 p-2 flex flex-col gap-2'>
           <h3 className='font-bold'>Shop Star Wars essentials</h3>
