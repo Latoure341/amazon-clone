@@ -1,80 +1,157 @@
-import React from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-import { FaLocationDot, FaMagnifyingGlass, FaShop } from 'react-icons/fa6'
-import { FaShoppingCart } from 'react-icons/fa'
+import { FaLocationDot, FaMagnifyingGlass, FaShop } from "react-icons/fa6";
+import { SlBasket } from "react-icons/sl";
 import { IoIosMenu } from "react-icons/io";
 
 const NavBar = () => {
-    const navigate = useNavigate()
+  const [accountModal, setAccountModal] = useState(false);
 
-    const signInpage = () => {
-        navigate("/login")
-    }
-    const homePage = () => {
-        navigate("/")
-    }
+  const navigate = useNavigate();
+
+  const signInpage = () => {
+    setAccountModal(!accountModal);
+  };
+  const homePage = () => {
+    navigate("/");
+  };
 
   return (
     <>
-    <nav className="flex w-full h-14 gap-9 justify-center items-center m-0 p-1 bg-[#131921] text-white overflow-y-hidden">
-        <div className='logo cursor-pointer hover:border hover:border-white hover:rounded-sm p-2' onClick={homePage}>
-            <img src="https://i.pinimg.com/originals/d4/9f/a3/d49fa3523c84bef766b4b2bde8296d23.jpg" alt="logo"
-            height={20} width={30}/>
+      <nav className="flex w-full h-14 gap-9 justify-center items-center m-0 p-1 bg-[#131921] text-white overflow-y-hidden">
+        <div
+          className="logo cursor-pointer hover:border hover:border-white hover:rounded-sm p-2"
+          onClick={homePage}
+        >
+          <img
+            src="https://banner2.cleanpng.com/lnd/20241213/cg/74d97a469873774f841633779c982d.webp"
+            alt="logo"
+            height={20}
+            width={30}
+          />
         </div>
-        <div className='location flex flex-col gap-1 cursor-pointer p-1'>
-            <span className='text-xs cursor-pointer'>Delivering to Krugersdorp, 1754</span>
-            <span className='text-base cursor-pointer flex items-center'>
-                <FaLocationDot />
-                Update you location
-            </span>
+        <div className="location flex flex-col hover:border hover:border-white hover:rounded-sm p-1">
+          <span className="text-xs cursor-pointer">
+            Delivering to Krugersdorp, 1754
+          </span>
+          <span className="text-xs cursor-pointer flex gap-1 font-bold items-center">
+            <FaLocationDot />
+            Update you location
+          </span>
         </div>
-        <div className='input flex items-center bg-white text-black cursor-pointer'>
-            <select name="categories" id="categories" className="border-none outline-none w-14 p-2 cursor-pointer">
-                <option value="All">All</option>
-                <option value="Alexa">Alexa</option>
-                <option value="Amazon Pay">Amazon Pay</option> 
-            </select>
+        <div className="input flex items-center bg-white text-black cursor-pointer">
+          <select
+            name="categories"
+            id="categories"
+            className="border-none outline-none w-14 p-2 cursor-pointer"
+          >
+            <option value="All">All</option>
+            <option value="Alexa">Alexa</option>
+            <option value="Amazon Pay">Amazon Pay</option>
+          </select>
 
-            <input type="text" placeholder='Search Amazon' className="outline-none border-none w-[35rem] p-0 cursor-pointer"/>
-            
-            <span className='bg-orange-300 p-3 m-0'>
-                <FaMagnifyingGlass className='text-xl text-current m-0 p-0'/>    
-            </span>
+          <input
+            type="text"
+            placeholder="Search Amazon"
+            className="outline-none border-none w-[35rem] p-0 cursor-pointer"
+          />
+
+          <span className="bg-orange-300 p-3 m-0">
+            <FaMagnifyingGlass className="text-xl text-current m-0 p-0" />
+          </span>
         </div>
-        <div className='signIn flex flex-col gap-1 cursor-pointer p-1' onClick={signInpage}>
-            <span className='text-xs cursor-pointer'>Hello, Sign in</span>
-            <span className='text-base cursor-pointer'>Account & Lists</span>
+        <div
+          className="signIn hover:border-1 hover:rounded-sm flex flex-col cursor-pointer p-1"
+          onClick={signInpage}
+        >
+          <span className="text-xs cursor-pointer">Hello, Sign in</span>
+          <span className="text-xs font-bold cursor-pointer">
+            Account & Lists
+          </span>
         </div>
-        <div className='ReturnsOrders flex flex-col gap-1 cursor-pointer p-1'>
-            <span className='text-sm cursor-pointer'>Returns</span>
-            <span className='text-sm cursor-pointer'>& Orders</span>
+
+        {accountModal && (
+          <>
+            <div className="absolute top-14 bg-black text-white w-screen h-screen p-4 rounded-sm opacity-75 z-10"></div>
+            <div className="absolute top-14 right-30 z-20 flex flex-col items-center bg-white text-black w-2/5 p-3 rounded-sm shadow-lg">
+              <button className="cursor-pointer px-25 bg-[#ffd814] px-4 py-2 text-xs font-semibold text-slate-900 rounded-lg hover:bg-[#f7ca00] mb-2"
+              onClick={()=>{navigate("/login")}}>
+                Sign in
+              </button>
+              <p className="text-xs mb-4">New Customer? <a href="#" className="text-blue-500 hover:underline">Start Here.</a></p>
+              <div className="p-4 flex justify-between w-full">
+                <span>
+                    <h3 className="font-bold text-black">Your Listing</h3>
+                    <p className="text-sm hover:underline cursor-pointer">Create a list</p>
+                </span>
+                <span>
+                    <h3 className="font-bold text-black">Your Account</h3>
+                    <ul className="text-sm cursor-pointer">
+                        <li className="hover:underline">Your Account</li>
+                        <li className="hover:underline">Your Orders</li>
+                        <li className="hover:underline">Keep Shopping for</li>
+                        <li className="hover:underline">Your Recommendations</li>
+                        <li className="hover:underline">Your Gift Card Balance</li>
+                        <li className="hover:underline">Sell</li>
+                    </ul>
+                </span>
+              </div>
+            </div>
+          </>
+        )}
+
+        <div className="ReturnsOrders hover:p-1 hover:border-1 hover:rounded-sm flex flex-col cursor-pointer">
+          <span className="text-xs cursor-pointer">Returns</span>
+          <span className="text-xs font-bold cursor-pointer">& Orders</span>
         </div>
-        <div className='cart flex items-center cursor-pointer hover:border hover:border-white hover:rounded-sm p-1'>
-            <FaShoppingCart />
-            <span>Cart</span>
+        <div className="cart flex items-end cursor-pointer hover:border hover:border-white hover:rounded-s">
+          <SlBasket className="text-5xl px-1" />
+          <span className="text-sm font-bold">Basket</span>
+          <p className="absolute rounded-2xl bg-[#131921] right-[5.7%] top-[1.2%] px-2 py-0">
+            {0}
+          </p>
         </div>
       </nav>
-      <section className='flex items-center text-white'>
-        <div className='bg-[#232f3e] flex gap-3 w-4/6 p-1'>
-          <span className='text-xs flex items-center gap-1 text-white font-bold p-2 cursor-pointer hover:border-1'>
-          <IoIosMenu className='text-white'/>
-          All
-        </span>
-        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Customer Service</span>
-        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Today's Deals</span>
-        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Keep Shopping For</span>
-        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Everyday Essentials</span>
-        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Best Sellers</span>
-        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Shop Mzansi</span>
-        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Gift Cards</span>
-        <span className='text-xs font-bold p-2 cursor-pointer hover:border-1'>Sell</span>
+
+      <section className="flex items-center text-white">
+        <div className="bg-[#232f3e] flex gap-3 w-4/6 p-1">
+          <span className="text-xs flex items-center gap-1 text-white font-bold p-2 cursor-pointer hover:border-1">
+            <IoIosMenu className="text-white" />
+            All
+          </span>
+          <span className="text-xs font-bold p-2 cursor-pointer hover:border-1">
+            Customer Service
+          </span>
+          <span className="text-xs font-bold p-2 cursor-pointer hover:border-1">
+            Today's Deals
+          </span>
+          <span className="text-xs font-bold p-2 cursor-pointer hover:border-1">
+            Keep Shopping For
+          </span>
+          <span className="text-xs font-bold p-2 cursor-pointer hover:border-1">
+            Everyday Essentials
+          </span>
+          <span className="text-xs font-bold p-2 cursor-pointer hover:border-1">
+            Best Sellers
+          </span>
+          <span className="text-xs font-bold p-2 cursor-pointer hover:border-1">
+            Shop Mzansi
+          </span>
+          <span className="text-xs font-bold p-2 cursor-pointer hover:border-1">
+            Gift Cards
+          </span>
+          <span className="text-xs font-bold p-2 cursor-pointer hover:border-1">
+            Sell
+          </span>
         </div>
-        <span className='p-1 text-center text-2xl font-extrabold cursor-pointer hover:border-1 w-2/6 bg-orange-500'>Everyday Essentials</span>
+        <span className="p-1 text-center text-2xl font-extrabold cursor-pointer hover:border-1 w-2/6 bg-orange-500">
+          Everyday Essentials
+        </span>
       </section>
+    </>
+  );
+};
 
-      </>
-  )
-}
-
-export default NavBar
+export default NavBar;
