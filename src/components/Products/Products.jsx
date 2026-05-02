@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Footer from '../Footer/Footer'
 import { BsFillStarFill, BsStarHalf, BsStar } from 'react-icons/bs'
+import NavBar from '../NavBar/NavBar';
 
 
 
@@ -16,6 +17,8 @@ const Products = () => {
   const emptyStars = 5 - filledStars - (hasHalfStar ? 1 : 0)
 
   return (
+    <>
+    <NavBar />
     <main className='bg-slate-50 min-h-screen'>
       <section className='border-b border-slate-200 bg-white py-3'>
         <div className='mx-auto flex max-w-7xl flex-wrap items-center gap-2 px-4 text-sm text-slate-600'>
@@ -146,6 +149,7 @@ const Products = () => {
 
       <Footer />
     </main>
+    </>
   )
 }
 

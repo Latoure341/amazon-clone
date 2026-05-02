@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import Footer from "../Footer/Footer.jsx";
+import NavBar from '../NavBar/NavBar.jsx';
 
 const Home = () => {
   return (
     <>
+    <NavBar />
       <section className="absolute top-10 left-0 text-center h-screen w-screen z-[-100] overflow-x-hidden">
         <img src='https://m.media-amazon.com/images/I/71KOWlHgg-L._SX3000_.jpg' alt='background' className="w-screen h-full" />
       </section>

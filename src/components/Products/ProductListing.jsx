@@ -2,6 +2,7 @@ import React from "react";
 import { AiFillStar, AiOutlineSearch } from "react-icons/ai";
 import Footer from "../Footer/Footer";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../NavBar/NavBar";
 
 const categories = [
   {
@@ -148,6 +149,8 @@ const ProductListing = () => {
 
 
   return (
+    <>
+    <NavBar />
     <div className="min-h-screen text-slate-800 bg-white">
 
       <section className="flex items-center gap-4 bg-gray-100 px-6 border-b border-slate-200 text-sm text-slate-600">
@@ -398,6 +401,7 @@ const ProductListing = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 
