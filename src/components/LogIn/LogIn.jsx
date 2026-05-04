@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
+  
+  const [mailOrPhone, setMailOrPhone] = useState("");
+  const navigate = useNavigate();
+
+  const handleForm = (e)=>{
+    e.preventDefault();
+    if(mailOrPhone !== ""){
+      localStorage.setItem("EmailOrNumber", JSON.stringify(mailOrPhone));
+      navigate("/productlist")
+    } else{
+      return ("<p>No Email or Phone Numbers provided</p>")
+    }
+    
+  }
+
   return (
     <>
       <div className="relative top-0 left-[35%] w-[30%] flex flex-col items-center justify-center px-4">
@@ -18,11 +34,15 @@ const LogIn = () => {
            Enter mobile number or email
           </label>
           <input
+          onChange={(e)=>{
+            setMailOrPhone(e.target.value);
+          }}
             type="text"
             placeholder="Email or phone number"
             className="p-2 border border-gray-400 rounded"
           />
           <button
+          onClick={handleForm}
             type="submit"
             className="mt-2 mb-4 text-sm px-3 py-1 bg-yellow-300 hover:bg-yellow-500 rounded-lg text-black cursor-pointer"
           >
