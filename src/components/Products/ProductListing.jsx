@@ -108,12 +108,12 @@ const products = [
     subText: "",
   },
   {
-    title: "Mondi Rotatrim A4 Printing Paper Ream 80gsm",
-    image: "https://m.media-amazon.com/images/I/61uF2V7UEfL._AC_SL1500_.jpg",
-    rating: 4.7,
-    reviews: 45,
-    price: "699",
-    delivery: "FREE delivery Sat, 2 May",
+    title: "Wireless Bluethooth Earbuds TWS Second Generation White, Earphones, Earphones, Cellphone Accessories",
+    image: "https://m.media-amazon.com/images/I/412EyXbVdCL._AC_SX450_.jpg",
+    rating: 2.9,
+    reviews: 10,
+    price: "99",
+    delivery: "FREE delivery Tue, 5 May",
     subText: "",
   },
 ];

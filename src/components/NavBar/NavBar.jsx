@@ -1,6 +1,6 @@
-import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { getCartCount } from "../utils/cartUtil";
 
 import { FaLocationDot, FaMagnifyingGlass, FaShop } from "react-icons/fa6";
 import { SlBasket } from "react-icons/sl";
@@ -110,7 +110,7 @@ const NavBar = () => {
           <SlBasket className="text-5xl px-1" />
           <span className="text-sm font-bold">Basket</span>
           <p className="absolute rounded-2xl bg-[#131921] right-[5.7%] top-[1.2%] px-2 py-0">
-            {0}
+            {getCartCount()}
           </p>
         </div>
       </nav>

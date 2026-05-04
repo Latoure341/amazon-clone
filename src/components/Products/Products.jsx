@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { addToCart } from "../utils/cartUtil";
+
 import Footer from "../Footer/Footer";
 import { BsFillStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
@@ -9,6 +11,7 @@ const Products = () => {
 
   // const [selectedImage, setSelectedImage] = useState(0)
   const [quantity, setQuantity] = useState(1);
+  console.log(product)
 
   const filledStars = Math.floor(product.rating);
   const hasHalfStar = product.rating - filledStars >= 0.5;
@@ -180,9 +183,9 @@ const Products = () => {
                   </select>
                 </div>
 
-                <button
+                <button onClick={()=>{addToCart(product)}}
                   type="button"
-                  className="w-full font-bold rounded-3xl bg-[#ffd814] px-4 py-2 text-xs text-slate-900 hover:bg-[#f7ca00]"
+                  className="w-full cursor-pointer font-bold rounded-3xl bg-[#ffd814] px-4 py-2 text-xs text-slate-900 hover:bg-[#f7ca00]"
                 >
                   Add to basket
                 </button>
