@@ -1,7 +1,8 @@
-import React from "react";
-import { AiFillStar, AiOutlineSearch } from "react-icons/ai";
-import Footer from "../Footer/Footer";
+import { AiFillStar } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+
+import { electronicProducts, HealthAndPersonalCare } from "../../assets/data.json";
+import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 
 const categories = [
@@ -32,92 +33,6 @@ const categories = [
   },
 ];
 
-const products = [
-  {
-    title:
-      "Apple iPad with A16 chip: 11-inch Liquid Retina display, 128 GB, Wi-Fi 6",
-    image: "https://m.media-amazon.com/images/I/31Bnc9Z27HL._AC_SR480,440_.jpg",
-    rating: 4.7,
-    reviews: 193,
-    price: "6 599",
-    delivery: "FREE delivery Sat, 2 May",
-    subText: "Or fastest delivery Today 17:00 - 20:00",
-  },
-  {
-    title: "TP-Link Deco X55 3-Pack AX3000 Whole Home Mesh Wi-Fi 6 System",
-    image: "https://m.media-amazon.com/images/I/61vfa6DvN5L._AC_SL1500_.jpg",
-    rating: 4.4,
-    reviews: 240,
-    price: "3 999",
-    delivery: "FREE delivery Sat, 2 May",
-    subText: "Or fastest delivery Today 17:00 - 20:00",
-  },
-  {
-    title:
-      'HP Laptop 15.6" FHD Intel® Core™ Ultra 7 16GB RAM 512GB SSD Windows 11 Home',
-    image: "https://m.media-amazon.com/images/I/71SINf1tSeL._AC_SL1500_.jpg",
-    rating: 4.3,
-    reviews: 86,
-    price: "16 999",
-    delivery: "FREE delivery Sat, 2 May",
-    subText: "Or fastest delivery Today 17:00 - 20:00",
-  },
-  {
-    title: "Belkin BoostCharge Pro Flex Braided USB-C to USB-C Cable (2m)",
-    image: "https://m.media-amazon.com/images/I/61x8FYgyG3L._AC_SL1500_.jpg",
-    rating: 4.5,
-    reviews: 77,
-    price: "450",
-    delivery: "FREE delivery Sat, 2 May",
-    subText: "",
-  },
-  {
-    title: "Mondi Rotatrim A4 Printing Paper Ream 80gsm",
-    image: "https://m.media-amazon.com/images/I/419cWKDxeUL._AC_SR480,440_.jpg",
-    rating: 4.7,
-    reviews: 45,
-    price: "699",
-    delivery: "FREE delivery Sat, 2 May",
-    subText: "",
-  },
-  {
-    title: "Mondi Rotatrim A4 Printing Paper Ream 80gsm",
-    image: "https://m.media-amazon.com/images/I/61uF2V7UEfL._AC_SL1500_.jpg",
-    rating: 4.7,
-    reviews: 45,
-    price: "699",
-    delivery: "FREE delivery Sat, 2 May",
-    subText: "",
-  },
-  {
-    title: "Mondi Rotatrim A4 Printing Paper Ream 80gsm",
-    image: "https://m.media-amazon.com/images/I/61uF2V7UEfL._AC_SL1500_.jpg",
-    rating: 4.7,
-    reviews: 45,
-    price: "699",
-    delivery: "FREE delivery Sat, 2 May",
-    subText: "",
-  },
-  {
-    title: "Mondi Rotatrim A4 Printing Paper Ream 80gsm",
-    image: "https://m.media-amazon.com/images/I/61uF2V7UEfL._AC_SL1500_.jpg",
-    rating: 4.7,
-    reviews: 45,
-    price: "699",
-    delivery: "FREE delivery Sat, 2 May",
-    subText: "",
-  },
-  {
-    title: "Wireless Bluethooth Earbuds TWS Second Generation White, Earphones, Earphones, Cellphone Accessories",
-    image: "https://m.media-amazon.com/images/I/412EyXbVdCL._AC_SX450_.jpg",
-    rating: 2.9,
-    reviews: 10,
-    price: "99",
-    delivery: "FREE delivery Tue, 5 May",
-    subText: "",
-  },
-];
-
 const brands = [
   "Apple",
   "ASUS",
@@ -140,12 +55,15 @@ const ProductListing = () => {
       rating: item.rating,
       reviews: item.reviews,
       price: item.price,
+      listPrice: item.listPrice || "",
       delivery: item.delivery,
-      subText: item.subText
+      subText: item.subText,
+      description: item.description || ""
     }
     localStorage.setItem("productDetails", JSON.stringify(productDetails))
     navigate("/products")
   }
+
 
 
   return (
@@ -324,7 +242,7 @@ const ProductListing = () => {
               </div>
 
               <div className="mt-2 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                {products.map((item) => (
+                {electronicProducts.map((item) => (
                   <article
                     key={item.title}
                     onClick={()=>{handleProductClick(item)}}

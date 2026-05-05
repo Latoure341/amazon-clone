@@ -5,13 +5,15 @@ import Footer from "../Footer/Footer";
 import { BsFillStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import NavBar from "../NavBar/NavBar";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
   const product = JSON.parse(localStorage.getItem("productDetails"));
+  const navigate = useNavigate();
 
   // const [selectedImage, setSelectedImage] = useState(0)
   const [quantity, setQuantity] = useState(1);
-  console.log(product)
+
 
   const filledStars = Math.floor(product.rating);
   const hasHalfStar = product.rating - filledStars >= 0.5;
@@ -90,7 +92,7 @@ const Products = () => {
                 <p className="mt-2 text-sm text-slate-500">
                   List Price:{" "}
                   <span className="line-through">
-                    R{parseInt(product.price)}
+                    R{product.listPrice}
                   </span>
                 </p>
                 <p className="mt-2 text-sm text-black">
@@ -133,7 +135,7 @@ const Products = () => {
               <div className="mt-1 text-sm text-slate-700 px-4">
                 <p className="font-bold text-slate-900">About this item</p>
                 <ul className="mt-3 list-disc space-y-2 pl-2 text-slate-700">
-                  {product.title}
+                  {product.description}
                 </ul>
               </div>
             </div>
@@ -183,7 +185,11 @@ const Products = () => {
                   </select>
                 </div>
 
-                <button onClick={()=>{addToCart(product)}}
+                <button onClick={()=>{
+
+                  addToCart(product)
+                  navigate("/checkout")
+                }}
                   type="button"
                   className="w-full cursor-pointer font-bold rounded-3xl bg-[#ffd814] px-4 py-2 text-xs text-slate-900 hover:bg-[#f7ca00]"
                 >

@@ -1,0 +1,98 @@
+{
+    "electronicProducts": [
+        {
+    "title":
+      "Apple iPad with A16 chip: 11-inch Liquid Retina display, 128 GB, Wi-Fi 6",
+    "image": "https://m.media-amazon.com/images/I/31Bnc9Z27HL._AC_SR480,440_.jpg",
+    "rating": 4.7,
+    "reviews": 193,
+    "price": 6599,
+    "listPrice": 8599,
+    "delivery": "FREE delivery Sat, 2 May",
+    "subText": "Or fastest delivery Today 17:00 - 20:00",
+    "description": "The 11-inch iPad is now more capable than ever with the superfast A16 chip, a stunning Liquid Retina display, advanced cameras, fast Wi-Fi, USB-C connector and four gorgeous colours.* iPad delivers a powerful way to create, stay connected and get things done"
+  },
+  {
+    "title": "MEGA So - 2.4GHz Backlit Mini Wireless Keyboard with Touchpad, Multimedia Keys, 7 Color Backlight for Android TV Box, Smart TV, HTPC, PS3, Tablet, Mac, Linux, Windows",
+    "image": "https://m.media-amazon.com/images/I/71ZFenRutDL._AC_SY450_.jpg",
+    "rating": 5.0,
+    "reviews": 2,
+    "price": 89,
+    "delivery": "FREE delivery Thursday, 7 May.",
+    "subText": "Or fastest delivery Today 17:00 - 20:00",
+    "description": "2.4ghz Wireless Mini Keyboard With Integrated Touchpad Mouse, Featuring 7-colour Rgb Backlit Illumination, Multimedia Control Keys, And Ergonomic Handheld Design. Compact Qwerty Layout With Touchpad Supporting Multi-touch Gestures Including One Tap For Left Button, Two Tap For Right Button, And Two-finger Drag For Page Scrolling. Includes Dedicated Volume Controls, Media Playback Buttons, Home Button, Search Function, And Directional Navigation Controls On Both Sides. Usb Wireless Receiver Included For Plug-and-play Connectivity."
+  },
+  {
+    "title": "CANON PG445XL and CL446XL Bundle",
+    "image": "https://m.media-amazon.com/images/I/41UvvKnTYqL._AC_SX450_.jpg",
+    "rating": "",
+    "reviews": "",
+    "price": 879,
+    "delivery": "FREE delivery Sat, 2 May",
+    "subText": "Or fastest delivery Today 17:00 - 20:00"
+  },
+  {
+    "title": "ASUS Vivobook Go 15 E1504TA Laptop, 15.6-inch FHD Display, Intel Processor N150, 8GB LPDDR5 RAM, 256GB UFS Storage, Windows 11 Home, Mixed Black",
+    "image": "https://m.media-amazon.com/images/I/61vUISLbPBL._AC_SX679_.jpg",
+    "rating": 4.5,
+    "reviews": 2,
+    "price": 5999,
+    "delivery": "FREE delivery Tomorrow, 6 May",
+    "subText": "Or fastest delivery Today"
+  },
+  {
+    "title": "Replacement Laptop Charger For Lenovo 20V 4.5A 90W 4mm X 1.7mm",
+    "image": "https://m.media-amazon.com/images/I/41bpLJldV7L._AC_.jpg",
+    "rating": 4.0,
+    "reviews": 2,
+    "price": 295,
+    "delivery": "FREE delivery Friday, 8 May.",
+    "subText": "",
+    "description": "Technical Specifications Input Voltage: 110-220V Output Voltage: 20V Output Current: 4.5A Pin size: 4mm X 1.7mm Power Output: 90W Description Our laptop charger quality is backed by several years of experience in the laptop replacement parts market. We only source the best laptop chargers to ensure your absolute peace of mind. It is also important to note that our laptop chargers come with a standard 6 months warranty to ensure that you are confident when making the purchase. Ensure to check the technical specifications above to make sure they match with the needs of your laptop before making the purchase. If you have any any questions, you are welcomed to reach us via phone or email. Package Include: 1 x Laptop Charger 1 x Power Cord"
+  },
+  {
+    "title": "Adjustable Aluminum Laptop Stand – Ergonomic Multi-Angle Foldable Notebook Holder | Portable Cooling Riser Fits Laptops 10 to 17.3 Inches (MacBook, Dell, HP, Lenovo) | Carrying Bag Included (Black)",
+    "image": "https://m.media-amazon.com/images/I/61kk6m2tdCL._AC_SX450_.jpg",
+    "rating": "",
+    "reviews": "",
+    "price": 99,
+    "delivery": "FREE delivery Tomorrow, 6 May",
+    "subText": "",
+    "description": "6-LEVEL ERGONOMIC ADJUSTMENT: Easily adjust the height to your comfort level (2.1 to 6); helps correct posture and reduces neck, back, and eye strain"
+  },
+  {
+    "title": "PlayStation Sony 5 SLIM DISC",
+    "image": "https://m.media-amazon.com/images/I/51Q3MtJEJ0L._AC_SX569_.jpg",
+    "rating": 4.6,
+    "reviews": 165,
+    "price": 12499,
+    "listPrice": "13 499",
+    "delivery": "FREE delivery Sat, 2 May",
+    "subText": ""
+  },
+  {
+    "title": "Dell 24 Monitor - SE2425HM, Full HD (1920x1080), 100Hz, IPS, 5ms, VESA (100x100mm), HDMI, VGA, 3 Year Warranty, Black",
+    "image": "https://m.media-amazon.com/images/I/71xZJNua6OL._AC_SY450_.jpg",
+    "rating": 4.5,
+    "reviews": 461,
+    "price": 1799,
+    "delivery": "FREE delivery Tomorrow, 6 May.",
+    "subText": "Or fastest delivery Today 5 pm - 8 pm. Order within 2 hrs 3 mins"
+  },
+  {
+    "title": "Wireless Bluethooth Earbuds TWS Second Generation White, Earphones, Earphones, Cellphone Accessories",
+    "image": "https://m.media-amazon.com/images/I/412EyXbVdCL._AC_SX450_.jpg",
+    "rating": 2.9,
+    "reviews": 10,
+    "price": 99,
+    "delivery": "FREE delivery Tue, 5 May",
+    "subText": ""
+  }
+    ],
+
+    "HealthAndPersonalCare": [
+        {
+            "Something": "Here"
+        }
+    ]
+}
