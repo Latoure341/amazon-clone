@@ -17,6 +17,9 @@ const NavBar = () => {
   const homePage = () => {
     navigate("/");
   };
+  const handleClick = ()=> {
+    navigate("/checkout"); 
+  }
 
   return (
     <>
@@ -106,10 +109,12 @@ const NavBar = () => {
           <span className="text-xs cursor-pointer">Returns</span>
           <span className="text-xs font-bold cursor-pointer">& Orders</span>
         </div>
-        <div className="cart flex items-end cursor-pointer hover:border hover:border-white hover:rounded-s">
+        <div
+        onClick={handleClick} 
+        className="cart flex items-end cursor-pointer hover:border hover:border-white hover:rounded-s">
           <SlBasket className="text-5xl px-1" />
           <span className="text-sm font-bold">Basket</span>
-          <p className="absolute rounded-2xl bg-[#131921] right-[5.7%] top-[1.2%] px-2 py-0">
+          <p className="absolute  z-10 rounded-2xl bg-[#131921] right-[5.7%] top-[1.2%] px-2 py-0">
             {getCartCount()}
           </p>
         </div>
