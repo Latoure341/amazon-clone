@@ -7,6 +7,7 @@ import LogIn from "./components/LogIn/LogIn";
 import Products from "./components/Products/Products";
 import ProductListing from "./components/Products/ProductListing";
 import Checkout from "./components/Checkout/Checkout";
+import ShippingForm from "./components/Checkout/ShippingForm";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/products" element={<Products />} />
         <Route path="/checkout" element={<Checkout/>} />
+        <Route path="/checkout/shipping" element={<ShippingForm />} />
         <Route path="/productlist" element={<ProductListing />} />
         <Route path="*" element={<h1 className="text-center mt-20 text-3xl">404 Not Found</h1>} />
       </Routes>
