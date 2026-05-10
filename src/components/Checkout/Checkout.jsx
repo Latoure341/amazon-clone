@@ -118,48 +118,55 @@ const Checkout = () => {
           </p>
         </main>
 
-        <aside className="w-full lg:w-2/6 p-2 bg-white dark:bg-gray-800">
-          <span className="flex gap-1 bg-white p-2">
-            <HiOutlineCheckCircle className="text-3xl" />
-            <span>
-              {
-                freeDelivery ? <p className="text-xs">Your order qualifies for FREE Delivery.</p> 
-                : <p className="text-xs">Your order qualifies Shipping Fee is R70.</p>
-              }
-              <p className="text-xs">
-                Select this option at checkout.{" "}
-                <span className="text-blue-600 underline">
-                  Delivery Details
-                </span>
-              </p>
-            </span>
-          </span>
+        <aside className="w-full lg:w-2/6 p-2">
+          <div className="space-y-4">
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+              <div className="flex items-start gap-3">
+                <HiOutlineCheckCircle className="mt-1 text-3xl text-green-600" />
+                <div>
+                  {freeDelivery ? (
+                    <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
+                      Your order qualifies for FREE Delivery.
+                    </p>
+                  ) : (
+                    <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
+                      Your order qualifies. Shipping Fee is R70.
+                    </p>
+                  )}
+                  <p className="mt-2 text-xs text-slate-600 dark:text-slate-300">
+                    Select this option at checkout. <span className="text-blue-600 underline cursor-pointer">Delivery Details</span>
+                  </p>
+                </div>
+              </div>
+            </div>
 
-          <span className="bg-white p-2">
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+              <div className="mb-4 text-sm text-slate-900 dark:text-slate-100">
+                <p className="font-medium">
+                  Subtotal ({quantity} item{quantity !== 1 ? "s" : ""}): <strong>R {subtotal.toFixed(2)}</strong>
+                </p>
+              </div>
+              <label className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+                <input type="checkbox" className="h-4 w-4 rounded border-slate-300 bg-white text-blue-600" />
+                <span>This order contains a gift</span>
+              </label>
 
-            <h3 className="bg-white text-xs">
-              Subtotal (1 item): <strong>R 1 499.00</strong>
-            </h3>
-            <span className="flex gap-1 bg-white">
-              <input type="checkbox" className="bg-white" />
-              <p className="bg-white text-xs">This order contains a gift</p>
-            </span>
-
-            <button 
-            onClick={()=>{
-              if(localStorage.getItem("EmailOrNumber")=== null){
-                navigate("/login")
-              } else if(products.length === 0){
-                navigate("/login");
-              }
-              else {
-                navigate("/checkout/shipping")
-              }          
-            }}
-            className="bg-yellow-300 py-1 px-7 rounded-xl text-sm mt-3 mb-6">
-              Proceed to checkout
-            </button>
-          </span>
+              <button
+                onClick={() => {
+                  if (localStorage.getItem("EmailOrNumber") === null) {
+                    navigate("/login");
+                  } else if (products.length === 0) {
+                    navigate("/login");
+                  } else {
+                    navigate("/checkout/shipping");
+                  }
+                }}
+                className="mt-6 w-full rounded-xl bg-yellow-300 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-yellow-400"
+              >
+                Proceed to checkout
+              </button>
+            </div>
+          </div>
         </aside>
       </section>
       <Footer />
