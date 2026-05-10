@@ -5,6 +5,7 @@ import { getCartCount } from "../utils/cartUtil";
 import { FaLocationDot, FaMagnifyingGlass, FaShop } from "react-icons/fa6";
 import { SlBasket } from "react-icons/sl";
 import { IoIosMenu } from "react-icons/io";
+import DarkModeToggle from "./DarkModeToggle";
 
 const NavBar = () => {
   const [accountModal, setAccountModal] = useState(false);
@@ -23,7 +24,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="flex w-full h-14 gap-9 justify-center items-center m-0 p-1 bg-[#131921] text-white overflow-y-hidden">
+      <nav className="flex flex-wrap w-full h-auto gap-3 justify-between items-center m-0 p-2 sm:p-1 bg-white dark:bg-[#131921] text-gray-900 dark:text-white overflow-x-hidden">
         <div
           className="logo cursor-pointer hover:border hover:border-white hover:rounded-sm p-2"
           onClick={homePage}
@@ -44,7 +45,7 @@ const NavBar = () => {
             Update you location
           </span>
         </div>
-        <div className="input flex items-center bg-white text-black cursor-pointer">
+        <div className="input flex flex-1 min-w-0 items-center bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white cursor-pointer overflow-hidden rounded">
           <select
             name="categories"
             id="categories"
@@ -58,7 +59,7 @@ const NavBar = () => {
           <input
             type="text"
             placeholder="Search Amazon"
-            className="outline-none border-none w-[35rem] p-0 cursor-pointer"
+            className="outline-none border-none flex-1 min-w-0 p-2 cursor-pointer"
           />
 
           <span className="bg-orange-300 p-3 m-0">
@@ -109,21 +110,22 @@ const NavBar = () => {
           <span className="text-xs cursor-pointer">Returns</span>
           <span className="text-xs font-bold cursor-pointer">& Orders</span>
         </div>
+        <DarkModeToggle />
         <div
         onClick={handleClick} 
         className="cart flex items-end cursor-pointer hover:border hover:border-white hover:rounded-s">
           <SlBasket className="text-5xl px-1" />
           <span className="text-sm font-bold">Basket</span>
-          <p className="absolute  z-10 rounded-2xl bg-[#131921] right-[5.7%] top-[1.2%] px-2 py-0">
+          <p className="absolute  z-10 rounded-2xl bg-gray-200 dark:bg-[#131921] right-[5.7%] top-[1.2%] px-2 py-0">
             {getCartCount()}
           </p>
         </div>
       </nav>
 
-      <section className="flex items-center text-white">
-        <div className="bg-[#232f3e] flex gap-3 w-4/6 p-1">
-          <span className="text-xs flex items-center gap-1 text-white font-bold p-2 cursor-pointer hover:border-1">
-            <IoIosMenu className="text-white" />
+      <section className="flex items-center text-gray-900 dark:text-white bg-gray-100 dark:bg-[#232f3e]">
+        <div className="bg-gray-100 dark:bg-[#232f3e] flex gap-3 w-4/6 p-1">
+          <span className="text-xs flex items-center gap-1 font-bold p-2 cursor-pointer hover:border-1">
+            <IoIosMenu className="" />
             All
           </span>
           <span className="text-xs font-bold p-2 cursor-pointer hover:border-1">
@@ -151,7 +153,7 @@ const NavBar = () => {
             Sell
           </span>
         </div>
-        <span className="p-1 text-center text-2xl font-extrabold cursor-pointer hover:border-1 w-2/6 bg-orange-500">
+        <span className="p-1 text-center text-2xl font-extrabold cursor-pointer hover:border-1 w-2/6 bg-orange-500 dark:bg-orange-600">
           Everyday Essentials
         </span>
       </section>

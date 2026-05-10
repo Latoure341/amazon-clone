@@ -22,6 +22,9 @@ function getCart() {
 // Save cart to localStorage
 function saveCart(cart) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new Event("cartUpdated"));
+  }
 }
 
 // Add item to cart

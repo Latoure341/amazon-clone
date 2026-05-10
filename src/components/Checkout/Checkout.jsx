@@ -5,10 +5,11 @@ import { LuTrash } from "react-icons/lu";
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
+import RightCartPanel from "../CartItems/RightCartPanel";
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
   const [products] = useState(Array.isArray(storedCart) ? storedCart : []);
   const currentProduct = JSON.parse(localStorage.getItem("productDetails"));
@@ -18,17 +19,13 @@ const Checkout = () => {
   );
   const freeDelivery = subtotal >= 500;
 
-  const handleCheckoutClick = () => {
-    if (products.length !== 0) {
-      navigate("/login");
-    }
-  };
   return (
-    <div className="bg-gray-200 min-h-screen text-slate-900">
+    <>
+    <div className="bg-gray-200 dark:bg-gray-900 min-h-screen overflow-x-hidden text-slate-900 dark:text-white">
       <NavBar />
-      <section className="bg-gray-200 text-black m-1 flex items-start gap-2">
-        <main className="p-2 w-4/6">
-          <div className="bg-white p-1">
+      <section className="bg-gray-200 dark:bg-gray-900 text-black dark:text-white m-1 flex flex-col lg:flex-row items-start gap-2">
+        <main className="p-2 w-full lg:w-4/6">
+          <div className="bg-white dark:bg-gray-800 p-1">
             <h1 className="p-2 text-3xl font-semibold">Shopping Basket</h1>
             <span className="text-xs pb-2 px-2 border-b-1 border-gray-300 w-full flex justify-end">
               Price
@@ -121,11 +118,14 @@ const Checkout = () => {
           </p>
         </main>
 
-        <aside className="w-2/6 p-2 bg-white">
+        <aside className="w-full lg:w-2/6 p-2 bg-white dark:bg-gray-800">
           <span className="flex gap-1 bg-white p-2">
             <HiOutlineCheckCircle className="text-3xl" />
             <span>
-              <p className="text-xs">Your order qualifies for FREE Delivery.</p>
+              {
+                freeDelivery ? <p className="text-xs">Your order qualifies for FREE Delivery.</p> 
+                : <p className="text-xs">Your order qualifies Shipping Fee is R70.</p>
+              }
               <p className="text-xs">
                 Select this option at checkout.{" "}
                 <span className="text-blue-600 underline">
@@ -147,7 +147,14 @@ const Checkout = () => {
 
             <button 
             onClick={()=>{
-              navigate("/checkout/shipping")
+              if(localStorage.getItem("EmailOrNumber")=== null){
+                navigate("/login")
+              } else if(products.length === 0){
+                navigate("/login");
+              }
+              else {
+                navigate("/checkout/shipping")
+              }          
             }}
             className="bg-yellow-300 py-1 px-7 rounded-xl text-sm mt-3 mb-6">
               Proceed to checkout
@@ -157,6 +164,8 @@ const Checkout = () => {
       </section>
       <Footer />
     </div>
+    <RightCartPanel />
+    </>
   );
 };
 

@@ -1,31 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ShippingForm = () => {
   const navigate = useNavigate();
   
-  const [formData, setFormData] = useState({
-    fullName: "",
-    address: "",
-    city: "",
-    postalCode: "",
-    country: "",
-  });
-
-  const [errors, setErrors] = useState({});
-
-  // Load shipping info from localStorage on mount
-  useEffect(() => {
+  // Initialize form data with saved shipping info or empty values
+  const getInitialFormData = () => {
     const savedShippingInfo = localStorage.getItem("shippingInfo");
     if (savedShippingInfo) {
       try {
-        const parsedData = JSON.parse(savedShippingInfo);
-        setFormData(parsedData);
+        return JSON.parse(savedShippingInfo);
       } catch (error) {
         console.error("Error parsing saved shipping info:", error);
+        return {
+          fullName: "",
+          address: "",
+          city: "",
+          postalCode: "",
+          country: "",
+        };
       }
     }
-  }, []);
+    return {
+      fullName: "",
+      address: "",
+      city: "",
+      postalCode: "",
+      country: "",
+    };
+  };
+
+  const [formData, setFormData] = useState(getInitialFormData);
+
+  const [errors, setErrors] = useState({});
 
   // Handle input change
   const handleChange = (e) => {
@@ -80,10 +87,10 @@ const ShippingForm = () => {
   };
 
   return (
-    <div className="bg-gray-200 min-h-screen">
+    <div className="bg-gray-200 dark:bg-gray-900 min-h-screen">
       <div className="flex justify-center items-center py-8">
-        <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl mx-2">
-          <h1 className="text-3xl font-bold mb-6">Shipping Address</h1>
+        <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md w-full max-w-2xl mx-2">
+          <h1 className="text-3xl font-bold mb-6 text-black dark:text-white">Shipping Address</h1>
           
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             {/* Full Name */}
@@ -98,7 +105,7 @@ const ShippingForm = () => {
                 value={formData.fullName}
                 onChange={handleChange}
                 placeholder="John Doe"
-                className="w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-300"
+                className="w-full p-2 border border-gray-400 dark:border-gray-600 rounded focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-300 bg-white dark:bg-gray-700 text-black dark:text-white"
               />
               {errors.fullName && (
                 <p className="text-red-600 text-xs mt-1">{errors.fullName}</p>
@@ -117,7 +124,7 @@ const ShippingForm = () => {
                 value={formData.address}
                 onChange={handleChange}
                 placeholder="123 Main Street"
-                className="w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-300"
+                className="w-full p-2 border border-gray-400 dark:border-gray-600 rounded focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-300 bg-white dark:bg-gray-700 text-black dark:text-white"
               />
               {errors.address && (
                 <p className="text-red-600 text-xs mt-1">{errors.address}</p>
@@ -136,7 +143,7 @@ const ShippingForm = () => {
                 value={formData.city}
                 onChange={handleChange}
                 placeholder="New York"
-                className="w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-300"
+                className="w-full p-2 border border-gray-400 dark:border-gray-600 rounded focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-300 bg-white dark:bg-gray-700 text-black dark:text-white"
               />
               {errors.city && (
                 <p className="text-red-600 text-xs mt-1">{errors.city}</p>
@@ -155,7 +162,7 @@ const ShippingForm = () => {
                 value={formData.postalCode}
                 onChange={handleChange}
                 placeholder="10001"
-                className="w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-300"
+                className="w-full p-2 border border-gray-400 dark:border-gray-600 rounded focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-300 bg-white dark:bg-gray-700 text-black dark:text-white"
               />
               {errors.postalCode && (
                 <p className="text-red-600 text-xs mt-1">{errors.postalCode}</p>
@@ -174,7 +181,7 @@ const ShippingForm = () => {
                 value={formData.country}
                 onChange={handleChange}
                 placeholder="United States"
-                className="w-full p-2 border border-gray-400 rounded focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-300"
+                className="w-full p-2 border border-gray-400 dark:border-gray-600 rounded focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-300 bg-white dark:bg-gray-700 text-black dark:text-white"
               />
               {errors.country && (
                 <p className="text-red-600 text-xs mt-1">{errors.country}</p>

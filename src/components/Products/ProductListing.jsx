@@ -1,9 +1,11 @@
 import { AiFillStar } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useState, useMemo } from "react";
 
 import { electronicProducts, HealthAndPersonalCare } from "../../assets/data.json";
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
+import RightCartPanel from "../CartItems/RightCartPanel";
 
 const categories = [
   {
@@ -46,6 +48,26 @@ const brands = [
 
 const ProductListing = () => {
   const navigate = useNavigate();
+  const [sortBy, setSortBy] = useState('default');
+
+  const sortedProducts = useMemo(() => {
+    const products = [...electronicProducts];
+    
+    switch (sortBy) {
+      case 'price-low':
+        return products.sort((a, b) => a.price - b.price);
+      case 'price-high':
+        return products.sort((a, b) => b.price - a.price);
+      case 'rating':
+        return products.sort((a, b) => {
+          const ratingA = typeof a.rating === 'number' ? a.rating : 0;
+          const ratingB = typeof b.rating === 'number' ? b.rating : 0;
+          return ratingB - ratingA;
+        });
+      default:
+        return products;
+    }
+  }, [sortBy]);
 
   const handleProductClick = (item) => {
     console.log("clicked, item details:", item)
@@ -80,8 +102,8 @@ const ProductListing = () => {
         <span className="text-xs hover:text-blue-600 hover:border-b-2 hover:border-blue-600 p-2 hover:py-1 cursor-pointer">Wearable Technology</span>
       </section>
       
-      <main className="mx-auto max-w-8xl px-4 py-2">
-        <div className="grid gap-6 xl:grid-cols-[260px_minmax(0,1fr)]">
+      <main className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8 py-2">
+        <div className="grid gap-6 grid-cols-1 xl:grid-cols-[260px_minmax(0,1fr)]">
 
           <aside className="">
             <div className=" bg-white px-5 ">
@@ -212,7 +234,7 @@ const ProductListing = () => {
                   </h2>
                 </div>
               </div>
-              <div className="mt-2 grid gap-4 sm:grid-cols-2 lg:grid-cols-5 gap-2">
+              <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
                 {categories.map((category) => (
                   <div
                     key={category.label} className="flex flex-col items-center">                    
@@ -236,13 +258,29 @@ const ProductListing = () => {
                     Hot new releases
                   </h2>
                 </div>
+                <div className="flex items-center gap-2">
+                  <label htmlFor="sort-select" className="text-sm font-medium text-slate-700">
+                    Sort by:
+                  </label>
+                  <select
+                    id="sort-select"
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="px-3 py-1 border border-slate-300 rounded-md text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  >
+                    <option value="default">Default</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Rating</option>
+                  </select>
+                </div>
                 <button className="text-md text-blue-600 underline font-medium">
                   See more
                 </button>
               </div>
 
-              <div className="mt-2 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                {electronicProducts.map((item) => (
+              <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+                {sortedProducts.map((item) => (
                   <article
                     key={item.title}
                     onClick={()=>{handleProductClick(item)}}
@@ -319,6 +357,7 @@ const ProductListing = () => {
 
       <Footer />
     </div>
+    <RightCartPanel />
     </>
   );
 };

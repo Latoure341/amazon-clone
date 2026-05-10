@@ -14,7 +14,7 @@ const Home = () => {
       {/* First section */}
       <section className='flex flex-wrap justify-center gap-4 mt-40 text-center'>
 
-        <div className='bg-gray-200 p-2 flex flex-col gap-2'>
+        <div className='bg-gray-200 dark:bg-gray-700 p-2 flex flex-col gap-2'>
           <h3>Shop deals under R250</h3>
 
           <span className='flex gap-2'>
@@ -41,7 +41,7 @@ const Home = () => {
           <a href="#" className='text-blue-500 p-1'>Shop Now</a>
         </div>
 
-        <div className='bg-gray-200 p-2 flex flex-col gap-2'>
+        <div className='bg-gray-200 dark:bg-gray-700 p-2 flex flex-col gap-2'>
           <h3>Extra 10% off selected items</h3>
           <img className='p-2' src='https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/BigSmileSale/extra_10__CC0.5x._SY304_CB781781918_.jpg'
             height={300} width={300} />

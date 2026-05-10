@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { addToCart } from "../utils/cartUtil";
+import RightCartPanel from "../CartItems/RightCartPanel";
 
 import Footer from "../Footer/Footer";
 import { BsFillStarFill, BsStarHalf, BsStar } from "react-icons/bs";
@@ -24,7 +25,7 @@ const Products = () => {
       <NavBar />
       <main className="bg-slate-50 min-h-screen">
         <section className="bg-white py-3">
-          <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-2 px-4 text-sm">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-2 px-4 sm:px-6 lg:px-8 text-sm">
             <span className="text-blue-600 hover:underline cursor-pointer">
               Electronics
             </span>
@@ -37,8 +38,8 @@ const Products = () => {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-8">
-          <div className="grid gap-6 lg:grid-cols-[1.5fr_2fr_1fr]">
+        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.5fr_2fr_1fr]">
             <div className="bg-white p-4 shadow-sm">
               <div className="overflow-hidden bg-slate-100 p-4">
                 <img
@@ -162,10 +163,10 @@ const Products = () => {
                   <p className="mt-2 text-green-700 px-1 text-lg">In Stock</p>
                 </div>
 
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center justify-between gap-3 border-1 px-2 rounded-lg">
                   <label
                     htmlFor="qty"
-                    className="text-sm font-medium text-slate-700"
+                    className="text-sm font-medium text-slate-700 outline-none"
                   >
                     Quantity:
                   </label>
@@ -175,7 +176,7 @@ const Products = () => {
                     onChange={(event) =>
                       setQuantity(Number(event.target.value))
                     }
-                    className="h-11 bg-white px-3 text-sm text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200"
+                    className="h-11 bg-white px-3 text-sm text-slate-900 shadow-sm focus:outline-none focus:ring-0 focus:ring-white p-0"
                   >
                     {[1, 2, 3, 4, 5].map((amount) => (
                       <option key={amount} value={amount}>
@@ -237,6 +238,7 @@ const Products = () => {
 
         <Footer />
       </main>
+      <RightCartPanel />
     </>
   );
 };
