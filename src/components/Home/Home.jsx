@@ -12,12 +12,12 @@ const Home = () => {
       </section>
 
       {/* First section */}
-      <section className='mt-32 grid min-w-0 grid-cols-1 justify-items-center gap-4 px-3 text-center sm:mt-36 sm:grid-cols-2 sm:px-4 md:mt-40 md:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-5'>
+      <section className='mt-32 grid min-w-0 grid-cols-1 justify-items-center gap-4 px-3 text-center sm:mt-36 sm:grid-cols-2 sm:px-4 md:mt-40 md:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-4'>
 
-        <div className='flex min-w-0 w-full max-w-full flex-col gap-2 bg-gray-200 p-2 dark:bg-gray-700 sm:p-3 md:p-4'>
+        <div className='flex min-w-0 w-full max-w-full flex-col gap-3 bg-gray-200 p-3 dark:bg-gray-700 sm:p-3 md:p-4'>
           <h3 className='text-sm font-semibold sm:text-base md:text-lg'>Shop deals under R250</h3>
 
-          <span className='flex flex-wrap justify-center gap-2 sm:justify-start'>
+          <span className='flex justify-center gap-2 sm:justify-center'>
             <span className='min-w-0'>
               <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2026/Homepage/HP_Desktop_Single_Image_Card_Books-1._SY304_CB783593942_.jpg" alt="product" className='mx-auto aspect-square h-auto w-full max-h-28 max-w-[min(100%,7.5rem)] object-cover sm:max-h-32 sm:max-w-[min(100%,8rem)]' />
               <p className='text-xs sm:text-sm'>Deals under R99 </p>
@@ -28,7 +28,7 @@ const Home = () => {
             </span>
           </span>
 
-          <span className='flex flex-wrap justify-center gap-2 sm:justify-start'>
+          <span className='flex justify-center gap-2 sm:justify-start'>
             <span className='min-w-0'>
               <img src="https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2026/Homepage/HP_Desktop_Single_Image_Card_Books-1._SY304_CB783593942_.jpg" alt="product" className='mx-auto aspect-square h-auto w-full max-h-28 max-w-[min(100%,7.5rem)] object-cover sm:max-h-32 sm:max-w-[min(100%,8rem)]' />
               <p className='text-xs sm:text-sm'>Deals under R199 </p>
