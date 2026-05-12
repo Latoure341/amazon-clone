@@ -90,9 +90,9 @@ const ProductListing = () => {
   return (
     <>
     <NavBar />
-    <div className="min-h-screen text-slate-800 bg-white">
+    <div className="min-h-screen min-w-0 overflow-x-hidden text-slate-800 bg-white">
 
-      <section className="flex items-center gap-4 bg-gray-100 px-6 border-b border-slate-200 text-sm text-slate-600">
+      <section className="flex flex-wrap items-center gap-x-3 gap-y-1 bg-gray-100 px-3 sm:gap-4 sm:px-6 border-b border-slate-200 text-sm text-slate-600">
         <span className="text-xs hover:text-blue-500 hover:border-b-2 hover:border-blue-600 p-2 hover:py-1 cursor-pointer">Electronics</span>
         <span className="text-xs hover:text-blue-600 hover:border-b-2 hover:border-blue-600 p-2 hover:py-1 cursor-pointer">Camera & Photo</span>
         <span className="text-xs hover:text-blue-600 hover:border-b-2 hover:border-blue-600 p-2 hover:py-1 cursor-pointer">TV & Home Entertainment</span>
@@ -101,8 +101,8 @@ const ProductListing = () => {
         <span className="text-xs hover:text-blue-600 hover:border-b-2 hover:border-blue-600 p-2 hover:py-1 cursor-pointer">Wearable Technology</span>
       </section>
       
-      <main className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8 py-2">
-        <div className="grid gap-6 grid-cols-1 xl:grid-cols-[260px_minmax(0,1fr)]">
+      <main className="mx-auto max-w-8xl min-w-0 px-3 py-2 sm:px-6 lg:px-8">
+        <div className="grid min-w-0 grid-cols-1 gap-4 sm:gap-6 xl:grid-cols-[260px_minmax(0,1fr)]">
 
           <aside className="">
             <div className=" bg-white px-5 ">
@@ -214,35 +214,35 @@ const ProductListing = () => {
           </aside>
 
           <section className="space-y-1">
-            <section className="border-b border-slate-200 bg-white p-2">
-              <p className="text-3xl font-bold text-slate-900">
+            <section className="border-b border-slate-200 bg-white p-2 sm:p-3">
+              <p className="text-2xl font-bold text-slate-900 sm:text-3xl">
                 Computers & Accessories
               </p>
               <img
                 src="https://m.media-amazon.com/images/G/53/RBSxFELA/2025/Electronics/Revamp/Artboard_2.jpg"
                 alt="Computers & Accessories hero"
-                className="w-full"
+                className="h-auto w-full max-w-full object-contain"
               />
             </section>
 
-            <div className="bg-white p-5">
-              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="bg-white p-3 sm:p-4 md:p-5">
+              <div className="flex flex-col gap-3 sm:gap-4 md:flex-row md:items-center md:justify-between">
                 <div>
-                  <h2 className="text-2xl font-semibold">
+                  <h2 className="text-xl font-semibold sm:text-2xl">
                     Categories
                   </h2>
                 </div>
               </div>
-              <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              <div className="mt-2 grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-5">
                 {categories.map((category) => (
                   <div
-                    key={category.label} className="flex flex-col items-center">                    
+                    key={category.label} className="flex min-w-0 flex-col items-center">                    
                       <img
                         src={category.image}
                         alt={category.label}
-                        className="h-full w-full object-contain"
+                        className="mx-auto aspect-square h-auto w-full max-h-24 max-w-[min(100%,7.5rem)] object-contain sm:max-h-28 sm:max-w-[min(100%,8.5rem)] md:max-h-32 md:max-w-[min(100%,9rem)]"
                       />
-                    <p className="text-xs font-medium">
+                    <p className="text-center text-[11px] font-medium leading-tight sm:text-xs">
                       {category.label}
                     </p>
                   </div>
@@ -250,22 +250,22 @@ const ProductListing = () => {
               </div>
             </div>
 
-            <div className="bg-white p-5">
-              <div className="flex flex-wrap items-end gap-4">
-                <div>
-                  <h2 className="text-2xl font-semibold">
+            <div className="bg-white p-3 sm:p-4 md:p-5">
+              <div className="flex min-w-0 flex-wrap items-end gap-3 sm:gap-4">
+                <div className="min-w-0">
+                  <h2 className="text-xl font-semibold sm:text-2xl">
                     Hot new releases
                   </h2>
                 </div>
-                <div className="flex items-center gap-2">
-                  <label htmlFor="sort-select" className="text-sm font-medium text-slate-700">
+                <div className="flex min-w-0 flex-wrap items-center gap-2">
+                  <label htmlFor="sort-select" className="text-xs font-medium text-slate-700 sm:text-sm">
                     Sort by:
                   </label>
                   <select
                     id="sort-select"
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="px-3 py-1 border border-slate-300 rounded-md text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="max-w-full min-w-0 shrink px-2 py-1 text-xs sm:px-3 sm:text-sm border border-slate-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   >
                     <option value="default">Default</option>
                     <option value="price-low">Price: Low to High</option>
@@ -273,30 +273,30 @@ const ProductListing = () => {
                     <option value="rating">Rating</option>
                   </select>
                 </div>
-                <button className="text-md text-blue-600 underline font-medium">
+                <button className="text-sm text-blue-600 underline font-medium sm:text-base">
                   See more
                 </button>
               </div>
 
-              <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+              <div className="mt-2 grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
                 {sortedProducts.map((item) => (
                   <article
                     key={item.title}
                     onClick={()=>{handleProductClick(item)}}
-                    className="bg-white p-4 shadow-sm transition hover:-translate-y-0.5"
+                    className="min-w-0 bg-white p-2 shadow-sm transition hover:-translate-y-0.5 sm:p-3 md:p-4"
                   >
-                    <div className="flex items-center justify-center overflow-hidden p-6">
+                    <div className="flex aspect-[4/5] w-full max-h-[min(15rem,52vw)] items-center justify-center overflow-hidden p-2 sm:aspect-auto sm:max-h-none sm:p-3 md:p-4 lg:p-5">
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="mx-auto h-auto max-h-[min(12rem,45vw)] w-full max-w-full object-contain sm:max-h-48"
+                        className="mx-auto h-full w-full max-h-full object-contain object-center sm:h-auto sm:max-h-[min(11rem,38vw)] md:max-h-[min(12rem,34vw)] lg:max-h-52"
                       />
                     </div>
-                    <div className="mt-4 space-y-3">
-                      <p className="text-sm font-medium text-slate-900">
+                    <div className="mt-3 space-y-2 sm:mt-4 sm:space-y-3">
+                      <p className="text-xs font-medium leading-snug text-slate-900 sm:text-sm">
                         {item.title}
                       </p>
-                      <div className="flex items-center gap-2 text-sm text-amber-500">
+                      <div className="flex flex-wrap items-center gap-1.5 text-xs text-amber-500 sm:gap-2 sm:text-sm">
                         {Array.from({ length: Math.floor(item.rating) }).map(
                           (_, index) => (
                             <AiFillStar key={index} />
@@ -308,20 +308,20 @@ const ProductListing = () => {
                         <span className="text-slate-800">{item.rating}</span>
                         <span className="text-slate-500">({item.reviews})</span>
                       </div>
-                      <p className="text-xl font-semibold text-slate-900">
+                      <p className="text-lg font-semibold text-slate-900 sm:text-xl">
                         R{item.price}
                       </p>
-                      <p className="text-sm text-slate-500">{item.delivery}</p>
+                      <p className="text-xs text-slate-500 sm:text-sm">{item.delivery}</p>
                       {item.subText && (
-                        <p className="text-sm text-slate-500">{item.subText}</p>
+                        <p className="text-xs text-slate-500 sm:text-sm">{item.subText}</p>
                       )}
                     </div>
                   </article>
                 ))}
               </div>
 
-              <div className="mt-8 p-4 text-center bg-gray-100">
-                <button className="font-bold text-blue-700 text-lg">
+              <div className="mt-6 p-3 text-center bg-gray-100 sm:mt-8 sm:p-4">
+                <button className="text-base font-bold text-blue-700 sm:text-lg">
                   See all results
                 </button>
               </div>
@@ -331,8 +331,8 @@ const ProductListing = () => {
               
         </div>
       </main>
-      <section className="p-4">
-        <p className="w-full text-black">
+      <section className="min-w-0 p-3 sm:p-4">
+        <p className="w-full min-w-0 text-sm text-black sm:text-base">
                 Amazon.co.za offers a wide range of Computers and Accessories
                 that you can buy online. Explore laptops, tablets, data storage,
                 printers, routers, monitor stands and many more computing

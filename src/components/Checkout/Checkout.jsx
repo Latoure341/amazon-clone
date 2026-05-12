@@ -164,8 +164,8 @@ const Checkout = () => {
         </main>
 
         <aside className="min-w-0 w-full p-2 lg:w-2/6">
-          <div className="space-y-4">
-            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+          <div className="space-y-4 bg-white dark:border-gray-700 dark:bg-gray-800" >
+            <div className="p-4">
               <div className="flex items-start gap-3">
                 <HiOutlineCheckCircle className="mt-1 text-3xl text-green-600" />
                 <div>
@@ -175,7 +175,7 @@ const Checkout = () => {
                     </p>
                   ) : (
                     <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
-                      Your order qualifies. Shipping Fee is R70.
+                      Your order does not qualify for FREE delivery. Shipping Fee is R70.
                     </p>
                   )}
                   <p className="mt-2 text-xs text-slate-600 dark:text-slate-300">
@@ -185,7 +185,7 @@ const Checkout = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+            <div className="p-4">
               <div className="mb-4 text-sm text-slate-900 dark:text-slate-100">
                 <p className="font-medium">
                   Subtotal ({totalUnits} item{totalUnits !== 1 ? "s" : ""}):{" "}

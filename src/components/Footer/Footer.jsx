@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
 
         <div className='flex flex-col gap-5 bg-[#131a22] text-white py-2 px-4 w-full text-center'>
-          <div className='flex justify-center items-center gap-20 mt-5'>
+          <div className='flex flex-wrap w-full justify-center items-center gap-15 mt-5'>
             <span className='text-start'>
               <h3 className='text-white text-sm font-bold'>Amazon Advertising</h3>
               <a className='text-gray-300 text-xs'>Find, attract and engage customers</a>
