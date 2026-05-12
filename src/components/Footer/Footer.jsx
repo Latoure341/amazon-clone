@@ -56,22 +56,26 @@ const Footer = () => {
         </div>
 
         <div className='flex flex-col gap-5 bg-[#131a22] text-white py-2 px-4 w-full text-center'>
-          <div className='flex flex-wrap w-full justify-center items-center gap-15 mt-5'>
-            <span className='text-start'>
+          <div className='flex flex-wrap w-full justify-center items-start gap-15 mt-5'>
+            <span className='text-start flex flex-col'>
               <h3 className='text-white text-sm font-bold'>Amazon Advertising</h3>
               <a className='text-gray-300 text-xs'>Find, attract and engage customers</a>
             </span>
-            <span className='text-start'>
-              <h3 className='text-white text-sm font-bold'>Amazon Advertising</h3>
-              <a className='text-gray-300 text-xs'>Find, attract and engage customers</a>
+            <span className='text-start flex flex-col'>
+              <h3 className='text-white text-sm font-bold'>Kindle Direct Publishing</h3>
+              <a className='text-gray-300 text-xs'>Indie Digital Printer</a>
+              <a className='text-gray-300 text-xs'>Publishing</a>
+              <a className='text-gray-300 text-xs'>Made easy</a>
             </span>
-            <span className='text-start'>
-              <h3 className='text-white text-sm font-bold'>Amazon Advertising</h3>
-              <a className='text-gray-300 text-xs'>Find, attract and engage customers</a>
+            <span className='text-start flex flex-col'>
+              <h3 className='text-white text-sm font-bold'>IMDb</h3>
+              <a className='text-gray-300 text-xs'>Movies, TV</a>
+              <a className='text-gray-300 text-xs'>& Celebrities</a>
             </span>
-            <span className='text-start'>
-              <h3 className='text-white text-sm font-bold'>Amazon Advertising</h3>
-              <a className='text-gray-300 text-xs'>Find, attract and engage customers</a>
+            <span className='text-start flex flex-col'>
+              <h3 className='text-white text-sm font-bold'>Goodreads</h3>
+              <a className='text-gray-300 text-xs'>Book reviews</a>
+              <a className='text-gray-300 text-xs'>& Recommendation</a>
             </span>
           </div>
 

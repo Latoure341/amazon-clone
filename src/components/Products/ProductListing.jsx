@@ -102,7 +102,7 @@ const ProductListing = () => {
       </section>
       
       <main className="mx-auto max-w-8xl min-w-0 px-3 py-2 sm:px-6 lg:px-8">
-        <div className="grid min-w-0 grid-cols-1 gap-4 sm:gap-6 xl:grid-cols-[260px_minmax(0,1fr)]">
+        <div className="grid min-w-0 grid-cols-2 gap-2 sm:gap-3 xl:grid-cols-[260px_minmax(0,1fr)]">
 
           <aside className="">
             <div className=" bg-white px-5 ">

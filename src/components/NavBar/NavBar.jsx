@@ -38,14 +38,14 @@ const NavBar = () => {
     <>
       <nav className="flex w-full h-auto flex-wrap gap-2 sm:gap-3 justify-between items-center m-0 p-2 sm:p-1 bg-white dark:bg-[#131921] text-gray-900 dark:text-white overflow-x-hidden">
         <div
-          className="logo cursor-pointer hover:border hover:border-white hover:rounded-sm p-2"
+          className="logo cursor-pointer hover:border hover:border-white hover:rounded-sm p-0"
           onClick={homePage}
         >
           <img
-            src="https://banner2.cleanpng.com/lnd/20241213/cg/74d97a469873774f841633779c982d.webp"
+            src="data:image/png;base64,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"
             alt="logo"
-            height={20}
-            width={30}
+            height={40}
+            width={70}
           />
         </div>
         <div className="location flex flex-col hover:border hover:border-white hover:rounded-sm p-1">
