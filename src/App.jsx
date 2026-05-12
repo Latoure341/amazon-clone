@@ -37,15 +37,14 @@ function App() {
       <Route path="/" element={<Home />} />
           <Route path="/login" element={<LogIn />} />  
           <Route path="/checkout/shipping" element={<ShippingForm />} />
+          <Route path="*" element={<h1 className="text-center mt-20 text-3xl">404 Not Found</h1>} />
     </Routes>
       <div className={hasCartItems ? "lg:pr-50" : ""}>
         <Routes>
-          
           <Route path="/products" element={<Products />} />
           <Route path="/checkout" element={<Checkout/>} />
-          
           <Route path="/productlist" element={<ProductListing />} />
-          <Route path="*" element={<h1 className="text-center mt-20 text-3xl">404 Not Found</h1>} />
+          
         </Routes>
       </div>
     

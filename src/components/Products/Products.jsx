@@ -39,13 +39,13 @@ const Products = () => {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.5fr_2fr_1fr]">
+          <div className="grid min-w-0 grid-cols-1 gap-6 lg:grid-cols-[1.5fr_2fr_1fr]">
             <div className="bg-white p-4 shadow-sm">
               <div className="overflow-hidden bg-slate-100 p-4">
                 <img
                   src={product.image}
                   alt=""
-                  className="h-[440px] w-full object-contain"
+                  className="mx-auto h-auto max-h-[min(27.5rem,70vh)] w-full max-w-full object-contain"
                 />
               </div>
             </div>
@@ -188,7 +188,7 @@ const Products = () => {
 
                 <button onClick={()=>{
 
-                  addToCart(product)
+                  addToCart(product, quantity)
                   navigate("/checkout")
                 }}
                   type="button"

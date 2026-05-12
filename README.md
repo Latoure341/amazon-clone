@@ -1,16 +1,63 @@
-# React + Vite
+# Amazon Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite e-commerce demo inspired by Amazon.co.za. This project includes product browsing, a checkout summary, cart support, dark mode, and sorting controls for products.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Product listing grid with interactive cards
+- Sort products by price (low → high / high → low) and rating
+- Responsive product catalogue layout and sidebar filters
+- Persistent dark mode toggle with light/dark theme support
+- Checkout page with order summary, quantity controls, and proceed-to-checkout flow
+- Right-hand cart summary panel for quick basket access
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite
+- Tailwind CSS
+- React Router DOM
+- React Icons
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/main.jsx` – app entry point
+- `src/App.jsx` – application routes and layout wrapper
+- `src/components/NavBar/NavBar.jsx` – header, navigation, search, theme toggle
+- `src/components/Products/ProductListing.jsx` – product browsing and sorting
+- `src/components/Checkout/Checkout.jsx` – checkout page and order summary
+- `src/components/CartItems/RightCartPanel.jsx` – persistent cart panel
+- `src/components/utils/cartUtil.js` – cart persistence and helpers
+- `src/assets/data.json` – seeded product data
+
+## Installation
+
+```bash
+npm install
+```
+
+## Development
+
+```bash
+npm run dev
+```
+
+Open the local server URL shown in the terminal to view the app.
+
+## Build
+
+```bash
+npm run build
+```
+
+## Preview
+
+```bash
+npm run preview
+```
+
+## Notes
+
+- The project uses Tailwind CSS with the `class` dark mode strategy.
+- Cart data is stored in `localStorage` for persistence across page refreshes.
+- Product details are passed through `localStorage` for the product details flow.

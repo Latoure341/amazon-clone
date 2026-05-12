@@ -26,7 +26,7 @@ const categories = [
   {
     label: "Data Storage",
     image:
-      "https://m.media-amazon.com/images/G/53/RBSxFELA/2025/Electronics/Revamp/ER-FC-Storage._CB549178960_UC216,216_.jpg",
+      "https://m.media-amazon.com/images/G/53/RBSxFELA/2025/Electronics/Revamp/ER-FC-DataStorage._CB549178960_UC216,216_.jpg",
   },
   {
     label: "Monitors",
@@ -70,7 +70,6 @@ const ProductListing = () => {
   }, [sortBy]);
 
   const handleProductClick = (item) => {
-    console.log("clicked, item details:", item)
     const productDetails = {
       title: item.title,
       image: item.image,
@@ -290,7 +289,7 @@ const ProductListing = () => {
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="h-48 object-contain"
+                        className="mx-auto h-auto max-h-[min(12rem,45vw)] w-full max-w-full object-contain sm:max-h-48"
                       />
                     </div>
                     <div className="mt-4 space-y-3">

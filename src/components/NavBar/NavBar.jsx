@@ -1,5 +1,5 @@
-import {  useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { getCartCount } from "../utils/cartUtil";
 
 import { FaLocationDot, FaMagnifyingGlass, FaShop } from "react-icons/fa6";
@@ -9,9 +9,21 @@ import DarkModeToggle from "./DarkModeToggle";
 
 const NavBar = () => {
   const [accountModal, setAccountModal] = useState(false);
-
+  const [cartCount, setCartCount] = useState(() => getCartCount());
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const syncCount = () => {
+      setCartCount(getCartCount());
+    };
+    syncCount();
+    window.addEventListener("cartUpdated", syncCount);
+    window.addEventListener("storage", syncCount);
+    return () => {
+      window.removeEventListener("cartUpdated", syncCount);
+      window.removeEventListener("storage", syncCount);
+    };
+  }, []);
   const signInpage = () => {
     setAccountModal(!accountModal);
   };
@@ -24,7 +36,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="flex flex-wrap w-full h-auto gap-3 justify-between items-center m-0 p-2 sm:p-1 bg-white dark:bg-[#131921] text-gray-900 dark:text-white overflow-x-hidden">
+      <nav className="flex w-full h-auto flex-wrap gap-2 sm:gap-3 justify-between items-center m-0 p-2 sm:p-1 bg-white dark:bg-[#131921] text-gray-900 dark:text-white overflow-x-hidden">
         <div
           className="logo cursor-pointer hover:border hover:border-white hover:rounded-sm p-2"
           onClick={homePage}
@@ -49,7 +61,7 @@ const NavBar = () => {
           <select
             name="categories"
             id="categories"
-            className="border-none outline-none w-14 p-2 cursor-pointer"
+            className="text-xs border-none outline-none w-14 p-2 cursor-pointer"
           >
             <option value="All">All</option>
             <option value="Alexa">Alexa</option>
@@ -113,17 +125,17 @@ const NavBar = () => {
         <DarkModeToggle />
         <div
         onClick={handleClick} 
-        className="cart flex items-end cursor-pointer hover:border hover:border-white hover:rounded-s">
-          <SlBasket className="text-5xl px-1" />
-          <span className="text-sm font-bold">Basket</span>
-          <p className="absolute  z-10 rounded-2xl bg-gray-200 dark:bg-[#131921] right-[5.7%] top-[1.2%] px-2 py-0">
-            {getCartCount()}
+        className="cart relative flex shrink-0 items-end cursor-pointer hover:border hover:border-white hover:rounded-s">
+          <SlBasket className="text-3xl px-1 sm:text-5xl" />
+          <span className="text-xs font-bold sm:text-sm">Basket</span>
+          <p className="absolute z-10 -right-0.5 -top-1 min-w-[1.25rem] rounded-2xl bg-gray-200 px-1.5 py-0 text-center text-xs font-bold dark:bg-[#232f3e]">
+            {cartCount}
           </p>
         </div>
       </nav>
 
-      <section className="flex items-center text-gray-900 dark:text-white bg-gray-100 dark:bg-[#232f3e]">
-        <div className="bg-gray-100 dark:bg-[#232f3e] flex gap-3 w-4/6 p-1">
+      <section className="flex min-w-0 flex-wrap items-center overflow-x-auto text-gray-900 dark:text-white bg-gray-100 dark:bg-[#232f3e] sm:flex-nowrap">
+        <div className="bg-gray-100 dark:bg-[#232f3e] flex min-w-0 flex-1 flex-wrap gap-2 p-1 sm:w-4/6 sm:flex-nowrap sm:gap-3">
           <span className="text-xs flex items-center gap-1 font-bold p-2 cursor-pointer hover:border-1">
             <IoIosMenu className="" />
             All
@@ -153,7 +165,7 @@ const NavBar = () => {
             Sell
           </span>
         </div>
-        <span className="p-1 text-center text-2xl font-extrabold cursor-pointer hover:border-1 w-2/6 bg-orange-500 dark:bg-orange-600">
+        <span className="w-full shrink-0 bg-orange-500 p-1 text-center text-lg font-extrabold cursor-pointer hover:border-1 dark:bg-orange-600 sm:w-2/6 sm:text-2xl">
           Everyday Essentials
         </span>
       </section>

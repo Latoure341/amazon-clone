@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { HiOutlineCheckCircle } from "react-icons/hi";
 import { LuTrash } from "react-icons/lu";
 
@@ -6,15 +6,49 @@ import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 import RightCartPanel from "../CartItems/RightCartPanel";
+import {
+  getCart,
+  removeFromCart,
+  updateCartItemQuantity,
+} from "../utils/cartUtil";
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const [quantity, setQuantity] = useState(1);
-  const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
-  const [products] = useState(Array.isArray(storedCart) ? storedCart : []);
+  const [products, setProducts] = useState(() => getCart());
   const currentProduct = JSON.parse(localStorage.getItem("productDetails"));
+  const currentLine = useMemo(
+    () =>
+      products.find((p) => p.title === currentProduct?.title),
+    [products, currentProduct?.title],
+  );
+  const quantity = Number(currentLine?.quantity ?? 1);
+  const totalUnits = useMemo(
+    () =>
+      products.reduce((sum, item) => sum + Number(item.quantity ?? 1), 0),
+    [products],
+  );
+
+  useEffect(() => {
+    const sync = () => {
+      setProducts(getCart());
+    };
+    sync();
+    window.addEventListener("cartUpdated", sync);
+    window.addEventListener("storage", sync);
+    return () => {
+      window.removeEventListener("cartUpdated", sync);
+      window.removeEventListener("storage", sync);
+    };
+  }, []);
+
   const subtotal = useMemo(
-    () => products.reduce((sum, item) => sum + Number(item.price || 0), 0),
+    () =>
+      products.reduce(
+        (sum, item) =>
+          sum +
+          Number(item.price ?? 0) * Number(item.quantity ?? 1),
+        0,
+      ),
     [products],
   );
   const freeDelivery = subtotal >= 500;
@@ -23,8 +57,8 @@ const Checkout = () => {
     <>
     <div className="bg-gray-200 dark:bg-gray-900 min-h-screen overflow-x-hidden text-slate-900 dark:text-white">
       <NavBar />
-      <section className="bg-gray-200 dark:bg-gray-900 text-black dark:text-white m-1 flex flex-col lg:flex-row items-start gap-2">
-        <main className="p-2 w-full lg:w-4/6">
+      <section className="bg-gray-200 dark:bg-gray-900 text-black dark:text-white m-1 flex flex-col items-start gap-2 lg:flex-row">
+        <main className="min-w-0 w-full p-2 lg:w-4/6">
           <div className="bg-white dark:bg-gray-800 p-1">
             <h1 className="p-2 text-3xl font-semibold">Shopping Basket</h1>
             <span className="text-xs pb-2 px-2 border-b-1 border-gray-300 w-full flex justify-end">
@@ -36,7 +70,7 @@ const Checkout = () => {
                 <img
                   src={currentProduct.image}
                   alt={currentProduct.title}
-                  className="w-50"
+                  className="h-auto w-full max-w-[12.5rem] object-contain sm:max-w-sm"
                 />
               </span>
               <span className="p-2">
@@ -66,8 +100,14 @@ const Checkout = () => {
                     <LuTrash
                       className="text-xs cursor-pointer font-bold"
                       onClick={() => {
-                        if (quantity > 0) {
-                          setQuantity(quantity - 1);
+                        const key = currentProduct?.title;
+                        if (!key) {
+                          return;
+                        }
+                        if (quantity <= 1) {
+                          removeFromCart(key);
+                        } else {
+                          updateCartItemQuantity(key, quantity - 1);
                         }
                       }}
                     />
@@ -75,7 +115,11 @@ const Checkout = () => {
                     <p
                       className="cursor-pointer font-bold"
                       onClick={() => {
-                        setQuantity(quantity + 1);
+                        const key = currentProduct?.title;
+                        if (!key) {
+                          return;
+                        }
+                        updateCartItemQuantity(key, quantity + 1);
                       }}
                     >
                       +
@@ -103,7 +147,8 @@ const Checkout = () => {
             </div>
             <span className="w-full border-t-1 border-gray-200 pb-2 flex justify-end items-center">
               <p>
-                Subtotal (1 item): <strong>R {currentProduct.price}</strong>
+                Subtotal ({totalUnits} item{totalUnits !== 1 ? "s" : ""}):{" "}
+                <strong>R {subtotal.toFixed(2)}</strong>
               </p>
             </span>
           </div>
@@ -118,7 +163,7 @@ const Checkout = () => {
           </p>
         </main>
 
-        <aside className="w-full lg:w-2/6 p-2">
+        <aside className="min-w-0 w-full p-2 lg:w-2/6">
           <div className="space-y-4">
             <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <div className="flex items-start gap-3">
@@ -143,7 +188,8 @@ const Checkout = () => {
             <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <div className="mb-4 text-sm text-slate-900 dark:text-slate-100">
                 <p className="font-medium">
-                  Subtotal ({quantity} item{quantity !== 1 ? "s" : ""}): <strong>R {subtotal.toFixed(2)}</strong>
+                  Subtotal ({totalUnits} item{totalUnits !== 1 ? "s" : ""}):{" "}
+                  <strong>R {subtotal.toFixed(2)}</strong>
                 </p>
               </div>
               <label className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">

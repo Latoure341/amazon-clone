@@ -1,12 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { LuTrash } from "react-icons/lu";
-import { getCart, removeFromCart } from "../utils/cartUtil";
+import { getCart, removeFromCart, updateCartItemQuantity } from "../utils/cartUtil";
 import { useNavigate } from "react-router-dom";
 
 const RightCartPanel = () => {
 
     const [cartItems, setCartItems] = useState(() => getCart());
-    const [quantity, setQuantity] = useState(1);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -38,7 +37,7 @@ const RightCartPanel = () => {
     }
 
     return (
-        <aside className="hidden lg:block fixed right-0 top-0 h-full w-50 bg-white dark:bg-gray-900 shadow-lg p-4 z-50 overflow-y-auto">
+        <aside className="hidden lg:block fixed right-0 top-0 h-full w-48 max-w-[min(12.5rem,calc(100vw-2rem))] bg-white dark:bg-gray-900 shadow-lg p-3 sm:p-4 z-50 overflow-y-auto">
             <div className="mb-4 flex flex-col items-center justify-center border-b-1 dark:border-white border-gray-200 py-2">
                 <p className="dark:text-white text-xs">Subtotal</p>
                 <p className="text-xs font-semibold dark:text-red-500">
@@ -64,27 +63,45 @@ const RightCartPanel = () => {
                         <img
                             src={item.image}
                             alt={item.title || item.name || "Cart item"}
-                            className="h-16 w-16 rounded object-cover"
+                            className="h-14 w-14 sm:h-16 sm:w-16 max-w-full rounded object-cover"
                         />
                         <p className="text-sm font-semibold text-slate-900 dark:text-white">
-                            R {Number(item.price ?? 0).toFixed(2)}
+                            R{" "}
+                            {(
+                                Number(item.price ?? 0) *
+                                Number(item.quantity ?? 1)
+                            ).toFixed(2)}
                         </p>
-                        <span className="dark:text-white flex items-center justify-between gap-1 border-3 border-yellow-400 rounded-xl py-0 px-3 w-25">
+                        <span className="dark:text-white flex min-w-0 max-w-full items-center justify-between gap-1 border-3 border-yellow-400 rounded-xl py-0 px-2 sm:px-3 w-full max-w-[6.5rem]">
                             <LuTrash
-                                className="text-xs cursor-pointer font-bold"
+                                className="text-xs shrink-0 cursor-pointer font-bold"
                                 onClick={() => {
-                                    if (quantity > 0) {
-                                        setQuantity(quantity - 1);
-                                    } else if(quantity==0){
-                                        removeFromCart(item.title)
+                                    const key = item.title ?? item.name;
+                                    const q = Number(item.quantity ?? 1);
+                                    if (!key) {
+                                        return;
+                                    }
+                                    if (q <= 1) {
+                                        removeFromCart(key);
+                                    } else {
+                                        updateCartItemQuantity(key, q - 1);
                                     }
                                 }}
                             />
-                            <p className="text-xs font-bold">{quantity}</p>
+                            <p className="text-xs font-bold tabular-nums">
+                                {Number(item.quantity ?? 1)}
+                            </p>
                             <p
-                                className="cursor-pointer font-bold"
+                                className="cursor-pointer shrink-0 font-bold text-xs sm:text-sm"
                                 onClick={() => {
-                                    setQuantity(quantity + 1);
+                                    const key = item.title ?? item.name;
+                                    if (!key) {
+                                        return;
+                                    }
+                                    updateCartItemQuantity(
+                                        key,
+                                        Number(item.quantity ?? 1) + 1,
+                                    );
                                 }}
                             >
                                 +
